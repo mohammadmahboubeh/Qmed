@@ -401,7 +401,7 @@
 
 	// Uport
 	const Connect = window.uportconnect;
-	const appName = 'NOSH ChartingSystem';
+	const appName = 'Qmed';
 	const uport = new Connect(appName, {
 		network: 'rinkeby'
 	});

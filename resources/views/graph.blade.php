@@ -73,7 +73,7 @@
             ],
             credits: {
                 href: 'http://noshemr.wordpress.com',
-                text: 'NOSH ChartingSystem'
+                text: 'Qmed System'
             }
         };
     }
@@ -131,7 +131,7 @@
             ],
             credits: {
                 href: 'http://noshemr.wordpress.com',
-                text: 'NOSH ChartingSystem'
+                text: 'Qmed System'
             },
             plotOptions: {
                 spline: {

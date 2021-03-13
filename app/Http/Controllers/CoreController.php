@@ -49,6 +49,7 @@ class CoreController extends Controller
             $practice_id = Session::get('practice_id');
             $result = DB::table('practiceinfo')->where('practice_id', '=', $practice_id)->first();
             $data = [
+                //To add PID field but should be added in items
                 'PID' => $request->input('pid'),
                 'lastname' => $request->input('lastname'),
                 'firstname' => $request->input('firstname'),
@@ -87,6 +88,7 @@ class CoreController extends Controller
             $this->setpatient($pid);
             return redirect()->route('patient');
         } else {
+            //To PID item 
             $items[] = [
                 'name' => 'PID',
                 'label' => trans('noshform.PID'),
@@ -824,7 +826,7 @@ class CoreController extends Controller
                     $url = URL::to('accept_invitation') . '/' . $data['password'];
                     App::setLocale(Session::get('practice_locale'));
                     $email['message_data'] = trans('noshform.new_user_message') . ' ' . $practice->practice_name . '.<br>' . trans('noshform.new_user_message1') . ' ' . $url . ' ' . trans('noshform.new_user_message2');
-                    $this->send_mail('auth.emails.generic', $email, 'Invitation to NOSH ChartingSystem', $data['email'], Session::get('practice_id'));
+                    $this->send_mail('auth.emails.generic', $email, 'Invitation to Qmed System', $data['email'], Session::get('practice_id'));
                     App::setLocale(Session::get('user_locale'));
                 }
                 $data['displayname'] = $data['firstname'] . " " . $data['lastname'];
@@ -1764,7 +1766,7 @@ class CoreController extends Controller
 
     public function dashboard(Request $request)
     {
-        $data['title'] = 'NOSH ChartingSystem';
+        $data['title'] = 'Qmed System'; //To rename website title
         $user_id = Session::get('user_id');
         if (Session::get('group_id') == '100') {
             $row = DB::table('demographics_relate')->where('id', '=', $user_id)->first();
